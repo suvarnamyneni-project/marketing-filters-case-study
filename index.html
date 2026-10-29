@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marketing Filters — Finding the right materials faster · Suvarna Myneni</title>
+  <meta name="description" content="UX case study by Suvarna Myneni: redesigning the product filters in IgniteRE Marketing so real estate agents can narrow marketing materials with clearer categories and predictable filter logic.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <nav class="top" aria-label="Site">
+    <div class="bar">
+      <a class="brand" href="#overview">Suvarna Myneni</a>
+      <div class="links">
+        <a href="#problem">Problem</a>
+        <a href="#research">Research</a>
+        <a href="#insights">Insights</a>
+        <a href="#design">Design</a>
+        <a href="#outcome">Outcome</a>
+        <a href="https://suvarnamyneni-project.github.io">Portfolio</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">UX case study · IgniteRE Marketing · eXp Realty</p>
+      <h1>Marketing Filters</h1>
+      <p class="lead">A clearer way to narrow the marketing catalog. Agents and the people who order for them were hunting through filters whose labels didn’t match the words they already used — postcards, flyers, brochures — and whose combinations didn’t behave the way they expected.</p>
+      <div class="meta">
+        <div><b>Role</b>Product / UX design</div>
+        <div><b>Product</b>IgniteRE Marketing (Spotlight)</div>
+        <div><b>Tools</b>Figma and Miro. Research in Pendo and UserZoom.</div>
+        <div><b>Timeline</b>Not stated in the project document</div>
+      </div>
+          <p class="note">The project document is written as a team effort and does not name contributors or a timeline. Every figure on this page comes from that document.</p>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="rail" aria-label="On this page">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#goals">Goals</a>
+      <a href="#research">Discover</a>
+      <a href="#questions">Questions</a>
+      <a href="#method">Method</a>
+      <a href="#insights">Insights</a>
+      <a href="#define">Define</a>
+      <a href="#ia">Information architecture</a>
+      <a href="#ideate">Ideate</a>
+      <a href="#design">Design</a>
+      <a href="#validate">Validate</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#learnings">Learnings</a>
+    </nav>
+
+    <div>
+      <section id="overview">
+        <p class="kicker">01 — Overview</p>
+        <h2>The catalog, and the job of the filters</h2>
+        <div class="prose">
+          <p>IgniteRE Marketing is where eXp Realty agents order marketing materials. In the product it is labeled Spotlight. The catalog is a grid of postcards, flyers, door hangers, brochures, and the rest of an agent’s print and social kit, with search, sort, and a filter column on the right.</p>
+          <p>The project set out to streamline that filtering: an interface with clear categorization and smart search, so agents spend less time searching and feel more confident that they have the right asset.</p>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Title card from the project document, showing the IgniteRE Marketing catalog.">
+            <img src="assets/hero.webp" width="1600" height="560" alt="Title card: a browser window of the IgniteRE Marketing catalog beside the words Marketing Filters, on a blue-to-purple gradient." fetchpriority="high">
+          </button>
+          <figcaption>Title card from the project document.</figcaption>
+        </figure>
+        <div class="grid2">
+          <div class="card">
+            <h3>What this case study covers</h3>
+            <ul class="clean">
+              <li>Pendo usage of the marketing product filters: which categories and which individual filters were used most and least.</li>
+              <li>A UserZoom survey with an open card sort, plus questions on navigation and ease.</li>
+              <li>The rule people described for combining filters: OR inside a category, AND across categories.</li>
+              <li>A regrouped taxonomy that names formats the way the homepage already does.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What the document does not include</h3>
+            <ul class="clean">
+              <li>A timeline, a team roster, or a personal role breakdown.</li>
+              <li>Wireframe frames. Figma and Miro are named; the frames themselves are not in the deck.</li>
+              <li>A usability test, task times, or a before-and-after outcome.</li>
+              <li>The wording of all nine survey questions, or readable text from the interview canvases.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem">
+        <p class="kicker">02 — Problem</p>
+        <h2>The words on the homepage and the words in the filters were not the same words</h2>
+        <div class="prose">
+          <p>On the marketing home page, people click categories such as Postcards and Flyers. Inside the product filters, those same materials were labeled by dimension: “small” for postcards and “8.5 × 11” for flyers. The deck calls this out directly. Postcards and Flyers were the two most-used homepage categories, and they did not appear in the filter list the way the other categories did.</p>
+          <p>All Products was the most-clicked feature inside Marketing. The deck reads that as a sign that filtering was not doing its job: people were stepping past the filters and into the full catalog.</p>
+        </div>
+        <blockquote class="quote">“Postcards and Flyers are the 2 most clicked on categories on the Home Page, but they don’t appear anywhere in the product filters like the other categories do (instead it says ‘small’ for postcards and ‘8.5 × 11’ for flyers).”</blockquote>
+        <figure>
+          <button type="button" class="shot" data-caption="IgniteRE Marketing catalog in Spotlight. All Products shows 252 results. The Size filter lists product types with counts, plus Clear and search.">
+            <img loading="lazy" src="assets/catalog.webp" width="1600" height="1042" alt="Screenshot of IgniteRE Marketing, Spotlight. The Marketing page shows All Products with 252 results, a search field, sort by Most Recent, and a Size filter with counts such as Postcards Small (89), Brochures Trifold (11), and Flyers 8.5×11 (48). Clear sits at the top of the filter column.">
+          </button>
+          <figcaption><strong>The catalog as shown in the deck.</strong> All Products, 252 results, search, sort, and a Size group of 17 options. Each option carries a count. Clear and “See less” are already in the column. The research charts further down use older event names such as “Filters - Size - Jumbo” and “Size - Tag.” The document does not say whether this screen is the before state or the later labeling, so it is shown as it appears.</figcaption>
+        </figure>
+      </section>
+
+      <section id="goals">
+        <p class="kicker">03 — Goals and success criteria</p>
+        <h2>Less searching. More confidence in the asset.</h2>
+        <div class="grid2">
+          <div class="prose">
+            <p>The project states one aim: streamline filtering with an intuitive interface, clear categorization, and smart search. That should reduce the time agents spend searching and increase their confidence that they have selected the right marketing asset.</p>
+            <p>The document does not define a numeric target and does not report whether the aim was met. The criteria below are the goal, restated as things the research already measured, so a later check would have a baseline. They are not results.</p>
+          </div>
+          <div class="card">
+            <h3>How success could be read, using baselines already in the deck</h3>
+            <ul class="clean">
+              <li><b>Ease.</b> The survey’s average customer ease score for finding materials with the filters was 5.73 on a scale of 1 (difficult) to 7 (easy).</li>
+              <li><b>A real path through filters.</b> All Products was the most-clicked feature in Marketing, at 12,530 clicks. A working filter set should be a credible alternative to opening everything.</li>
+              <li><b>Matching language.</b> Homepage categories and filter labels should use the same names for the same materials.</li>
+              <li><b>Predictable combinations.</b> People described OR within a category and AND between categories. Success is the UI behaving that way, and saying so.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="research">
+        <p class="kicker">04 — Discover</p>
+        <h2>Pendo, before the conversations</h2>
+        <div class="prose">
+          <p>Usage was pulled from Pendo on key features of IgniteRE Marketing. The purpose was preliminary: which marketing product filters were used most, and which were used least. The click charts do not print a date range. The only dated Pendo chart in the deck is device usage, from January 24, 2022 to January 24, 2023, all users.</p>
+        </div>
+
+        <h3>Which categories were used</h3>
+        <p>Theme and Size carried the usage. The slide says filters within Theme and Size were used the most, and that Number of Photos was used significantly less than the others. The slide prints that comparison as p&gt;0.05.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Clicks by filter category, transcribed from the chart. EDDM is a single filter and is not a bar on this chart.</caption>
+            <thead>
+              <tr><th>Filter category</th><th class="num">Clicks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Theme</td><td class="num">12,260</td></tr>
+              <tr><td>Size</td><td class="num">8,948</td></tr>
+              <tr><td>Holiday</td><td class="num">3,672</td></tr>
+              <tr><td>Number of Photos</td><td class="num">1,659</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Pendo chart: clicks by filter category. Theme 12,260, Size 8,948, Holiday 3,672, Number of Photos 1,659.">
+            <img loading="lazy" src="assets/chart-categories.webp" width="1600" height="583" alt="Slide titled Which filter categories are getting the most clicks. Notes say Theme and Size were used the most, and Number of Photos was used significantly less (p greater than 0.05). The bar chart shows Theme 12260, Size 8948, Holiday 3672, and Number of Photos 1659.">
+          </button>
+          <figcaption>Category usage from the Pendo pull.</figcaption>
+        </figure>
+
+        <h3>The filters inside those categories</h3>
+        <p>Almost every filter in the top 10 sits in Size or Theme. EDDM — Every Door Direct Mail — is the exception. The notes call out jumbo and small sizes, seller-directed and buyer-directed themes, and themes tied to property marketing and open houses.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Top 10 filter categories by clicks, transcribed from the chart.</caption>
+            <thead>
+              <tr><th>Filter</th><th class="num">Clicks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Size — Jumbo</td><td class="num">3,225</td></tr>
+              <tr><td>Theme — Property marketing</td><td class="num">3,207</td></tr>
+              <tr><td>Theme — Seller directed</td><td class="num">2,543</td></tr>
+              <tr><td>Size — Small</td><td class="num">1,635</td></tr>
+              <tr><td>Theme — Personal branding</td><td class="num">1,398</td></tr>
+              <tr><td>Theme — Market update</td><td class="num">1,138</td></tr>
+              <tr><td>Theme — Open house</td><td class="num">1,051</td></tr>
+              <tr><td>Theme — Buyer directed</td><td class="num">1,005</td></tr>
+              <tr><td>EDDM</td><td class="num">954</td></tr>
+              <tr><td>Size — 5.5 × 8.5</td><td class="num">837</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Top 10 filters by clicks. Size Jumbo leads at 3,225, then Theme Property marketing at 3,207.">
+            <img loading="lazy" src="assets/chart-top-filters.webp" width="1600" height="718" alt="Bar chart of the top 10 filter categories by clicks: Size Jumbo 3225, Theme Property marketing 3207, Theme Seller directed 2543, Size Small 1635, Theme Personal branding 1398, Theme Market update 1138, Theme Open house 1051, Theme Buyer directed 1005, EDDM 954, Size 5.5 by 8.5 837.">
+          </button>
+          <figcaption>The filters people actually clicked.</figcaption>
+        </figure>
+
+        <h3>What almost nobody clicked</h3>
+        <p>Almost all of the bottom 10 belonged to Number of Photos. Tag is the other story: it was barely used as a product filter (Size — Tag, 21 clicks) and barely used on the homepage (Tags, 15 clicks), and the deck notes that it still had prime real estate on the home page.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Bottom 10 filters by clicks, transcribed from the chart. Ordered from fewest clicks.</caption>
+            <thead>
+              <tr><th>Filter</th><th class="num">Clicks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Number of Photos — 14</td><td class="num">17</td></tr>
+              <tr><td>Size — Tag</td><td class="num">21</td></tr>
+              <tr><td>Number of Photos — 13</td><td class="num">23</td></tr>
+              <tr><td>Number of Photos — 12</td><td class="num">28</td></tr>
+              <tr><td>Number of Photos — 11</td><td class="num">28</td></tr>
+              <tr><td>Number of Photos — 5</td><td class="num">34</td></tr>
+              <tr><td>Theme — Spanish language</td><td class="num">39</td></tr>
+              <tr><td>Size — 5.5 × 8.5 booklet</td><td class="num">47</td></tr>
+              <tr><td>Number of Photos — 10</td><td class="num">65</td></tr>
+              <tr><td>Number of Photos — 7</td><td class="num">75</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Homepage categories, separate from the filters</h3>
+        <p>The homepage is a different control. Postcards dominate it. The deck offers two readings and does not choose between them: Postcards might lead because it is listed first, or because it is a more popular category.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Clicks by homepage category, transcribed from the chart.</caption>
+            <thead>
+              <tr><th>Homepage category</th><th class="num">Clicks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Postcard</td><td class="num">12,227</td></tr>
+              <tr><td>Flyer</td><td class="num">4,314</td></tr>
+              <tr><td>Brochure</td><td class="num">3,029</td></tr>
+              <tr><td>Social Media</td><td class="num">2,167</td></tr>
+              <tr><td>Door Hanger</td><td class="num">1,910</td></tr>
+              <tr><td>Folding Card</td><td class="num">1,768</td></tr>
+              <tr><td>Label</td><td class="num">1,635</td></tr>
+              <tr><td>Business Card</td><td class="num">1,182</td></tr>
+              <tr><td>Tags</td><td class="num">15</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Least-used filters, mostly Number of Photos, and homepage category clicks. Postcard leads the homepage at 12,227. Tags has 15.">
+            <img loading="lazy" src="assets/chart-least.webp" width="1400" height="1457" alt="Two charts. Bottom 10 filter categories are mostly Number of Photos, from 17 clicks up to 75, plus Size Tag at 21, Theme Spanish language at 39, and Size 5.5 by 8.5 booklet at 47. Homepage category clicks: Postcard 12227, Flyer 4314, Brochure 3029, Social Media 2167, Door Hanger 1910, Folding Card 1768, Label 1635, Business Card 1182, Tags 15.">
+          </button>
+          <figcaption>Least-used filters, and the homepage categories they sat beside. The arrow in the original slide points at Tag.</figcaption>
+        </figure>
+
+        <h3>All Products, the back button, and the mismatch</h3>
+        <div class="table-wrap">
+          <table>
+            <caption>Top 10 clicks overall inside Marketing, transcribed from the chart. This mixes features, homepage categories, and filters.</caption>
+            <thead>
+              <tr><th>Feature</th><th class="num">Clicks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>All Products</td><td class="num">12,530</td></tr>
+              <tr><td>Homepage category — Postcard</td><td class="num">12,227</td></tr>
+              <tr><td>Back to home button</td><td class="num">7,405</td></tr>
+              <tr><td>Homepage category — Flyer</td><td class="num">4,314</td></tr>
+              <tr><td>Filters — Size — Jumbo</td><td class="num">3,225</td></tr>
+              <tr><td>Filters — Theme — Property marketing</td><td class="num">3,207</td></tr>
+              <tr><td>Homepage category — Brochure</td><td class="num">3,029</td></tr>
+              <tr><td>Filters — Theme — Seller directed</td><td class="num">2,543</td></tr>
+              <tr><td>Homepage category — Social Media</td><td class="num">2,167</td></tr>
+              <tr><td>Homepage category — Door Hanger</td><td class="num">1,910</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Other observations: All Products leads at 12,530 clicks. Postcards and Flyers are popular homepage categories but the filters name them by size.">
+            <img loading="lazy" src="assets/chart-observations.webp" width="1400" height="1508" alt="Observations slide. All Products was the most clicked feature in Marketing at 12530, followed by Homepage Category Postcard at 12227 and the Back to home button at 7405. A callout shows the homepage banner and the Size filter list, which uses dimension labels such as Small 4.25 by 5.5 and Jumbo 6 by 9 rather than the words Postcards and Flyers.">
+          </button>
+          <figcaption>The observation that ties the charts together: people reach for All Products, and the homepage vocabulary never made it into the filter labels.</figcaption>
+        </figure>
+
+        <h3>The filter list those charts were counting</h3>
+        <p>The categories in the research export were Size, Theme, Holiday, Number of Photos, and EDDM. Size mixed true dimensions with product types. That mix is the taxonomy the later annotation takes apart.</p>
+        <figure>
+          <button type="button" class="shot" data-caption="The five filter groups as exported for the research: Size, Theme, Holiday, Number of Photos, and EDDM.">
+            <img loading="lazy" src="assets/taxonomy.webp" width="1600" height="831" alt="Five checkbox columns. Size includes Small 4.25 by 5.5, Jumbo 6 by 9, 8.5 by 11, Labels, Business Card, brochures, booklets, Folding Card, Door Hanger, Social Media, and Tag. Theme includes Property Marketing, Open House, Buyer Directed, sports, and Spanish Language. Holiday runs from New Years to Christmas. Number of Photos runs from 1 Photo to 16 Photos, with no 8, 9, or 15. EDDM is Every Door Direct Mail.">
+          </button>
+          <figcaption>The five groups. Number of Photos skips 8, 9, and 15 in this list. EDDM has a single option.</figcaption>
+        </figure>
+      </section>
+
+      <section id="questions">
+        <p class="kicker">05 — Research questions</p>
+        <h2>Two questions, asked of the people who order</h2>
+        <div class="prose">
+          <p>The deck states the questions the project wanted to answer:</p>
+        </div>
+        <ol class="clean">
+          <li>How do users want to navigate through various filters to narrow down their options for marketing materials?</li>
+          <li>What are people’s mental models when organizing marketing materials into categories — and how do they want to label and represent these categories?</li>
+        </ol>
+        <div class="grid2" style="margin-top:18px">
+          <div class="card">
+            <h3>Who the study set out to include</h3>
+            <ul class="clean">
+              <li><b>Real estate agents</b> — core users of IgniteRE Marketing.</li>
+              <li><b>Sales reps</b> — likely to use IgniteRE Marketing to order marketing materials for their agents.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Who actually responded</h3>
+            <ul class="clean">
+              <li>11 respondents: 6 sales reps, 3 sales managers, 1 product analyst, 1 real estate agent.</li>
+              <li>Locations printed on the slide: AZ (3), TX (2), FL (2), OH, HI, NM, NV. There is an empty spot in the punctuation between HI and NM, with no state name in it.</li>
+            </ul>
+            <p class="note">One agent, in a study aimed at agents and the reps who order for them. That composition is reported as printed. It is a limit on how far the card sort can speak for agents.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="method">
+        <p class="kicker">06 — Method</p>
+        <h2>A UserZoom survey, with an open card sort</h2>
+        <div class="stats">
+          <div class="stat"><b>11</b><span>Respondents. 6 sales reps, 3 sales managers, 1 product analyst, 1 real estate agent.</span></div>
+          <div class="stat"><b>9</b><span>Survey questions, on frequency of usage, navigation preferences, pain points, and a customer ease score. The nine wordings are not listed.</span></div>
+          <div class="stat"><b>30</b><span>Cards. Pieces of marketing material from Marketing / faPrint, across sizes, themes, and holidays. One example in the deck is “Welcome Home Tag.”</span></div>
+        </div>
+        <div class="prose">
+          <p>Card sorting was used to see how people conceptualize and group the materials. Each card was a label for a piece of marketing material. Participants sorted the cards into groups that matched their own mental model, and they wrote their own labels for those groups. It was an open sort, not a sort into categories the team had already named.</p>
+          <p>Survey questions sat alongside the sort to gauge navigation preferences, including what people expect to happen when they use more than one filter. The deck does not print those questions one by one.</p>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Study snapshot from the deck: 11 respondents, 9 survey questions, 30 cards.">
+            <img loading="lazy" src="assets/research-stats.webp" width="1400" height="509" alt="Three panels. 11 Respondents: 6 sales reps, 3 sales managers, 1 product analyst, 1 real estate agent, representing AZ (3), TX (2), FL (2), OH, HI, NM, NV. 9 survey questions on frequency of usage, navigation preferences, pain points, and a customer ease score. 30 cards for sorting, covering sizes, themes, and holidays from Marketing and faPrint.">
+          </button>
+          <figcaption>The study, as summarized on the research slide.</figcaption>
+        </figure>
+
+        <h3>Where the notes went</h3>
+        <p>The research-analysis board is a Miro canvas. Its own instructions say to fill an interview canvas with yellow notes for key information and black notes for quotes, then tag a note as a pain (pink), a delight (blue), or an opportunity (green). The export is a grid of those canvases. The note text is too small to read, so this case study does not quote participants and does not invent tags.</p>
+        <figure>
+          <button type="button" class="shot" data-caption="Miro research-analysis board. A grid of interview canvases with yellow, black, pink, blue, and green notes. Individual note text is not legible.">
+            <img loading="lazy" src="assets/research-boards.webp" width="1600" height="790" alt="Research Analysis header explaining yellow notes for information, black notes for quotes, and pink, blue, and green tags for pain, delight, and opportunity. Below is a grid of individual canvases filled with small sticky notes whose words cannot be read.">
+          </button>
+          <figcaption>The synthesis board. Structure is visible. The words on the notes are not.</figcaption>
+        </figure>
+
+        <p class="rationale"><strong>Process.</strong> The deck has a Process heading and no diagram under it. The sequence here is the order of the document itself, not a figure from the file: Pendo usage, then the two research questions, then the UserZoom survey and open card sort, then the ease and device results, then the filter rule, then the annotated taxonomy.</p>
+        <ol class="flow">
+          <li><span class="n">1</span><strong>Usage</strong><span>Pendo on filter categories, individual filters, homepage categories, and devices.</span></li>
+          <li><span class="n">2</span><strong>Questions</strong><span>How people want to narrow, and how they want materials grouped and named.</span></li>
+          <li><span class="n">3</span><strong>Survey + sort</strong><span>11 people, 9 questions, 30 cards they labeled themselves.</span></li>
+          <li><span class="n">4</span><strong>Rule and taxonomy</strong><span>OR within a category, AND between categories, and names that match the homepage.</span></li>
+        </ol>
+      </section>
+
+      <section id="insights">
+        <p class="kicker">07 — Synthesis and insights</p>
+        <h2>Size first. Desktop. Ease at 5.73, with a long tail.</h2>
+        <div class="prose">
+          <p>The card sort asked people to make their own groups. Most of them grouped by size before anything else. The chart title in the deck says “cart sort,” which is the card sort.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>How the 11 respondents grouped materials. 6 + 3 + 2 = 11.</caption>
+            <thead>
+              <tr><th>How they grouped</th><th class="num">People</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Size</td><td class="num">6</td></tr>
+              <tr><td>Mix of size and theme</td><td class="num">3</td></tr>
+              <tr><td>Theme</td><td class="num">2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Card sort result: 6 people grouped by size, 3 by a mix of size and theme, 2 by theme.">
+            <img loading="lazy" src="assets/cardsort.webp" width="1400" height="613" alt="Chart titled How did they group marketing materials into categories during the cart sort. Size 6, Mix of size and theme 3, Theme 2. Caption: most people grouped marketing material according to size first.">
+          </button>
+          <figcaption>Size is the mental model for a majority of this group. Theme-only grouping was the smallest set.</figcaption>
+        </figure>
+
+        <h3>Finding materials was middling, not hard for everyone and not easy for everyone</h3>
+        <p>The average customer ease score for using the filters in IRE Marketing or faPrint was <b>5.73</b>. The scale runs from 1, difficult, to 7, easy. The bars sit on the gridlines: five responses at 7, three at 6, one at 5, one at 4, none at 3 or 2, and one at 1. Those eleven ratings average to 5.73. Most of the group found it easy. One person rated it as difficult as the scale allows. The deck does not say what that person struggled with.</p>
+        <figure>
+          <button type="button" class="shot" data-caption="Average ease score 5.73. Distribution peaks at 7 and includes one rating of 1.">
+            <img loading="lazy" src="assets/ease.webp" width="1400" height="594" alt="Large figure 5.73, average customer ease score for using filters to find marketing materials. Bar chart of ratings from 7 down to 1: the bar at 7 reaches 5, the bar at 6 reaches 3, the bars at 5, 4, and 1 reach 1, and 3 and 2 are empty.">
+          </button>
+          <figcaption>Ease of finding relevant marketing materials with the filters in IRE Marketing or faPrint.</figcaption>
+        </figure>
+
+        <h3>Ordering happens on a desktop</h3>
+        <p>Respondents said they mostly use a desktop or laptop to order. The survey chart shows 11 for desktop or laptop, 1 for mobile phone, and 0 for tablet. The question is worded “which device(s),” so a person could select more than one. Pendo, for January 24, 2022 through January 24, 2023, agrees in scale: 25,731 desktop visits, 1,802 mobile, and 90 tablet.</p>
+        <div class="grid2">
+          <figure>
+            <button type="button" class="shot" data-caption="Survey: 11 desktop or laptop, 1 mobile phone, 0 tablet.">
+              <img loading="lazy" src="assets/devices-survey.webp" width="1400" height="509" alt="Survey chart. When using IRE Marketing or faPrint to order marketing material, which devices do you primarily use? Desktop or laptop computer 11, mobile phone 1, tablet 0.">
+            </button>
+            <figcaption>What respondents reported.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot" data-caption="Pendo device usage, January 24, 2022 to January 24, 2023. Desktop 25,731, mobile 1,802, tablet 90.">
+              <img loading="lazy" src="assets/devices-pendo.webp" width="1400" height="528" alt="Pendo bar chart, IRE Marketing device usage from January 24 2022 to January 24 2023, all users. Desktop 25731, Mobile 1802, Tablet 90. Note: visitors were on desktop far more often than on mobile or tablet.">
+            </button>
+            <figcaption>What Pendo recorded for the same product, over that year.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>What the findings support</h3>
+          <ul class="clean">
+            <li>People reach for format first. Six of eleven sorts were size-first, and Size was the second-most-used filter category, behind Theme.</li>
+            <li>The labels they are offered for format do not match the homepage, where Postcard alone was clicked 12,227 times.</li>
+            <li>Photo-count filters occupy a column and almost no behavior. Several of them are the least-used controls in the product.</li>
+            <li>Tag is given homepage space and is not used, on the homepage or in the filters.</li>
+            <li>The work of ordering is a desktop task in both the survey and the year of Pendo data. A wide filter column is a plausible layout for that context. It is not evidence about a phone layout.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="define">
+        <p class="kicker">08 — Define</p>
+        <h2>Two people, one catalog, a shared labeling problem</h2>
+        <p class="note">These portraits use only the roles and behaviors in the document. They are not interview transcripts. The study did not publish quotes.</p>
+        <div class="personas">
+          <article class="persona">
+            <p class="who">Real estate agent</p>
+            <h3>Orders their own materials</h3>
+            <p>Named as the core user of IgniteRE Marketing. One of the eleven respondents was an agent, so the sort is thin evidence about agents specifically.</p>
+            <p>The job the project names for them: spend less time searching the catalog, and feel more sure of the asset they pick. The homepage already speaks their language — Postcard, Flyer, Brochure. The filters, in the research export, answered with dimensions.</p>
+          </article>
+          <article class="persona">
+            <p class="who">Sales rep</p>
+            <h3>Orders materials for their agents</h3>
+            <p>Named as someone likely to use IgniteRE Marketing on an agent’s behalf. Six respondents were sales reps and three were sales managers, so this is the group the survey mostly heard from.</p>
+            <p>They are narrowing a catalog for someone else’s listing, often from a desktop. A wrong combination of filters costs a second pass through All Products. The back-to-home control was the third-most-clicked item in Marketing, at 7,405 clicks.</p>
+          </article>
+        </div>
+
+        <h3 style="margin-top:28px">Needs the evidence will support</h3>
+        <ul class="clean">
+          <li>Find a format first, because that is how most of this group organized the cards, and how the highest homepage categories are structured.</li>
+          <li>See Postcards and Flyers called Postcards and Flyers inside the filters, not only on the homepage.</li>
+          <li>Combine two sizes without the catalog treating that as “must be both.”</li>
+          <li>Add a theme or a season and have that narrow the set, rather than replace it.</li>
+          <li>Skip a long list of photo counts that the usage data says almost no one opens.</li>
+        </ul>
+
+        <h3>How might we</h3>
+        <p class="note">Written from the findings as design framing. The document does not include a workshop list of these statements.</p>
+        <ul class="hmw">
+          <li><em>How might we</em> label a filter with the same noun the homepage already uses for that material?</li>
+          <li><em>How might we</em> let someone pick jumbo or small, and then keep only the themes they also chose?</li>
+          <li><em>How might we</em> give Size and Theme the room the click data says they earn, and stop giving Tag and photo counts the same visual weight?</li>
+          <li><em>How might we</em> make All Products a choice, rather than the path people take when the filters are hard to trust?</li>
+        </ul>
+      </section>
+
+      <section id="ia">
+        <p class="kicker">09 — Information architecture</p>
+        <h2>OR inside a category. AND across categories.</h2>
+        <div class="prose">
+          <p>The solution slide states the rule in one sentence. People described wanting OR logic for filters within the same category, and AND logic for filters between categories.</p>
+          <p>Jumbo and Small, both inside Size, means materials that are either size. Adding Property Marketing, in Theme, keeps only the materials that are one of those sizes and also that theme. Holiday, later annotated as Season, works the same way against the other groups.</p>
+        </div>
+        <div class="logic" aria-label="Filter logic">
+          <div class="col">
+            <h3>Size <span class="pill">OR</span></h3>
+            <ul>
+              <li>Small — 4.25 × 5.5</li>
+              <li>Jumbo — 6 × 9</li>
+              <li>8.5 × 11, brochures, booklets, and the other format rows</li>
+            </ul>
+          </div>
+          <div class="op" aria-hidden="true">AND</div>
+          <div class="col">
+            <h3>Theme <span class="pill">OR</span></h3>
+            <ul>
+              <li>Property Marketing</li>
+              <li>Open House</li>
+              <li>Seller directed, buyer directed, and the rest of the theme list</li>
+            </ul>
+          </div>
+          <div class="op" aria-hidden="true">AND</div>
+          <div class="col">
+            <h3>Holiday <span class="pill">OR</span></h3>
+            <ul>
+              <li>The season and holiday list</li>
+              <li>From New Years through Christmas / Holiday, plus Other</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="The project’s own logic diagram. Red OR runs down Size and down Theme. Red AND runs between Size, Theme, and Holiday.">
+            <img loading="lazy" src="assets/logic.webp" width="1400" height="976" alt="Three filter columns, Size, Theme, and Holiday. A vertical red arrow labeled OR runs down the Size options and another down the Theme options. Horizontal red arrows labeled AND connect Size to Theme and Theme to Holiday.">
+          </button>
+          <figcaption>The diagram from the solution slide. OR is vertical, inside the column. AND is horizontal, between columns.</figcaption>
+        </figure>
+
+        <h3>The taxonomy the annotation proposes</h3>
+        <p>The closing slide keeps the columns and redraws the groups on top of them. Format labels from the homepage are pulled over the dimension checkboxes. Sports themes are bracketed. Holiday is struck through and Season is written above it. Long lists get a “See more” or “See all.”</p>
+        <div class="ia">
+          <div class="tax">
+            <h3>Size, renamed by format</h3>
+            <ul>
+              <li>Postcards — Small 4.25 × 5.5, Jumbo 6 × 9</li>
+              <li>Flyers — 8.5 × 11</li>
+              <li>Brochures — Trifold, 5.5 × 8.5, 8.5 × 11</li>
+              <li>Booklets — 8.5 × 11 and 5.5 × 8.5</li>
+              <li>Called out on their own: Calendars, and a highlighted 5.5 × 8.5</li>
+              <li>Left as rows: Labels, Business Card, Folding Card, Door Hanger, Social Media, Tag</li>
+            </ul>
+          </div>
+          <div class="tax">
+            <h3>Theme</h3>
+            <ul>
+              <li>Property Marketing, Market Update, Open House, Personal Branding</li>
+              <li>Local to my Area, Buyer Directed, Seller Directed</li>
+              <li>Home Maintenance, Moving, New Home / Home Anniversary</li>
+              <li>Thank You, Birthday, Lender, Spanish Language</li>
+              <li>Football, Baseball, and Hockey grouped as Sports</li>
+              <li>Calendars linked out of this column toward its own group</li>
+            </ul>
+          </div>
+          <div class="tax">
+            <h3>Season</h3>
+            <ul>
+              <li>The Holiday heading is struck through. Season is written in its place.</li>
+              <li>New Years, Valentine’s Day, St. Patrick’s Day, Easter</li>
+              <li>Spring, Summer, 4th of July, Back to School, Fall</li>
+              <li>Halloween, Thanksgiving, Winter, Christmas / Holiday</li>
+              <li>Other is marked, with a See all control beside it</li>
+            </ul>
+          </div>
+          <div class="tax">
+            <h3>Photos and EDDM</h3>
+            <ul>
+              <li>1 through 4 photos stay in view</li>
+              <li>See more covers 5, 6, 7, Multiple Properties, 10, 11, 12, 13, 14, and 16</li>
+              <li>EDDM stays a single checkbox: Every Door Direct Mail</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <button type="button" class="shot" data-caption="Annotated final taxonomy. Postcards, Flyers, Brochures, and Booklets are drawn over the Size column. Sports groups the three sports themes. Season replaces Holiday. See more collapses the long photo list.">
+            <img loading="lazy" src="assets/final.webp" width="1600" height="737" alt="Annotated filter columns. Postcards groups Small and Jumbo. Flyers marks 8.5 by 11. Brochures groups trifold and two brochure sizes. Booklets groups two booklet sizes. Football, Baseball, and Hockey are boxed as Sports. Holiday is crossed out under the word Season. A See more control points at photo counts from 5 photos through 16 photos. See all sits near Other. EDDM remains Every Door Direct Mail.">
+          </button>
+          <figcaption><strong>Final result, as annotated in the document.</strong> This is a markup of the existing columns, not a separate high-fidelity screen. The product screenshot earlier shows a related labeling — Postcards Small, Postcards Medium, Postcards Jumbo, Brochures Trifold, Flyers 8.5×11 — plus per-option counts, All Sizes, and See less. Medium is on that screen and is not called out in this annotation.</figcaption>
+        </figure>
+      </section>
+
+      <section id="ideate">
+        <p class="kicker">10 — Ideate</p>
+        <h2>The flow the research describes</h2>
+        <p class="rationale"><strong>Not a wireframe from the file.</strong> Figma and Miro are the tools named in the document. No sketch or wireframe frame is included. The flow below is the path implied by the homepage categories, the All Products escape hatch, and the filter rule.</p>
+        <ol class="flow">
+          <li><span class="n">1</span><strong>Land in Marketing</strong><span>Choose a homepage category — Postcard and Flyer are the heavily used ones — or open All Products.</span></li>
+          <li><span class="n">2</span><strong>Read the set</strong><span>The catalog in the deck shows a result total, here 252, and a count on each filter option.</span></li>
+          <li><span class="n">3</span><strong>Narrow</strong><span>Inside one category, selections add (OR). Across categories, they restrict (AND).</span></li>
+          <li><span class="n">4</span><strong>Recover</strong><span>Clear resets the column. Back to home was a heavily used control, at 7,405 clicks, so leaving the grid has to stay obvious.</span></li>
+        </ol>
+        <div class="prose">
+          <p>The design moves that are actually drawn are small and specific. Name the format. Group sports. Prefer Season as the label over Holiday. Collapse the photo counts that usage says people do not open. Leave EDDM as one checkbox, since it was used — 954 clicks — and does not need a new group.</p>
+        </div>
+      </section>
+
+      <section id="design">
+        <p class="kicker">11 — Design</p>
+        <h2>What the solution specifies, and how the catalog should behave</h2>
+        <div class="prose">
+          <p>Two artifacts carry the design. The logic diagram says how selections combine. The annotated columns say what the groups are called. The catalog screenshot shows interaction details that already exist on the Marketing page: a result total, a count beside each option, search, sort, Clear, and See less.</p>
+        </div>
+        <div class="grid3">
+          <div class="card">
+            <h3>Counts</h3>
+            <p>The screenshot shows “252 Results” next to All Products, and counts in parentheses on each Size option, from Postcards Small (89) through Tags (80). A count answers “is this worth opening?” before the click.</p>
+          </div>
+          <div class="card">
+            <h3>Clear</h3>
+            <p>Clear sits at the top of the filter column, opposite the word Filter. With AND between categories, a single reset matters: one forgotten theme can empty the grid.</p>
+          </div>
+          <div class="card">
+            <h3>See less / See more</h3>
+            <p>The screenshot uses See less under a Size list of 17. The annotation uses See more on photo counts and See all near Other. Long groups stay out of the way of Size and Theme, which are the groups people use.</p>
+          </div>
+        </div>
+        <p>Visible Size options on that screen, with the counts printed beside them: All Sizes; Postcards Small (89); Postcards Medium (89); Postcards Jumbo (89); Brochures Trifold (11); Brochures 5.5×8.5 (22); Brochures 8.5×11 (11); Flyers 8.5×11 (48); Labels (44); Booklets 5.5×8.5 (18); Booklets 8.5×11 (18); Calendars (12); Folding Cards (45); Door Hangers (39); Business Cards (8); Social Media (55); Tags (80). Theme (14) is only partly in frame: All Themes, Property Marketing (11), Personal Branding (34).</p>
+
+        <h3>Trying the rule</h3>
+        <p class="rationale"><strong>An illustration, not the catalog.</strong> The six sample rows were written to demonstrate the rule from the solution slide. They are not products, prices, or counts from IgniteRE Marketing.</p>
+        <form class="demo" id="logic-demo">
+          <div class="demo-head">
+            <p id="demo-count" aria-live="polite" style="margin:0;font-weight:700">6 materials</p>
+            <button class="btn ghost" type="reset">Clear all</button>
+          </div>
+          <div class="demo-grid">
+            <fieldset>
+              <legend>Size <span class="pill">OR</span></legend>
+              <label class="check"><input type="checkbox" name="size" value="Small"> Small — 4.25 × 5.5</label>
+              <label class="check"><input type="checkbox" name="size" value="Jumbo"> Jumbo — 6 × 9</label>
+              <label class="check"><input type="checkbox" name="size" value="Flyer"> Flyer — 8.5 × 11</label>
+            </fieldset>
+            <fieldset>
+              <legend>Theme <span class="pill">AND with Size</span></legend>
+              <label class="check"><input type="checkbox" name="theme" value="Property Marketing"> Property Marketing</label>
+              <label class="check"><input type="checkbox" name="theme" value="Open House"> Open House</label>
+            </fieldset>
+          </div>
+          <p class="rule-line" id="rule-text"></p>
+          <ul class="results" id="demo-results"></ul>
+        </form>
+
+        <h3>Interaction notes that follow from the rule</h3>
+        <div class="prose">
+          <p class="rationale"><strong>Design rationale.</strong> The document does not draw filter chips, an empty state, or an accessibility specification. These are the behaviors the rule and the screens imply.</p>
+          <ul class="clean">
+            <li><b>Say the combination in words.</b> After a selection, a line such as “Jumbo or Small, and Property Marketing” makes OR and AND visible. Color alone, like the red arrows on the slide, will not do it.</li>
+            <li><b>Chips are a reading of the current filters, not a second menu.</b> Each chip removes one selection. Clear removes the set. The screenshot already has Clear; it does not show chips.</li>
+            <li><b>Empty results need a cause.</b> If AND across categories returns nothing, the message should say that every selected category has to match, and offer removal of the last category. No empty state is drawn in the deck.</li>
+            <li><b>Counts update with the set.</b> The parenthetical counts on the screenshot are only trustworthy if they describe the current result, not the unfiltered catalog. The document does not say which of those they are.</li>
+          </ul>
+        </div>
+
+        <h3>Accessibility, as a requirement of this UI rather than a finding</h3>
+        <ul class="clean">
+          <li>The filter column is a set of groups. Each group needs a name (Size, Theme, Season), and each checkbox needs a name that includes the format, not only a dimension.</li>
+          <li>See more and See less are buttons with an expanded or collapsed state, not a text link that moves focus unpredictably.</li>
+          <li>When the result total changes, that change should be announced. The screenshot shows the number visually, next to All Products.</li>
+          <li>The logic cannot depend on the red OR and AND arrows. Those are annotations. The interface needs the same information in text.</li>
+          <li>Desktop is the documented context — 25,731 desktop visits against 1,802 mobile and 90 tablet in the dated Pendo chart — so the wide column is justified. Those mobile visits still need a filter control that is not a desktop sidebar copied onto a phone. No mobile layout is in the document.</li>
+        </ul>
+      </section>
+
+      <section id="validate">
+        <p class="kicker">12 — Validate</p>
+        <h2>What was checked, and what was not</h2>
+        <div class="prose">
+          <p>The evaluative work in the document is the research itself: Pendo usage, the ease score, the device question, and the card sort. There is no usability test, no task-time study, and no report of the filters in front of agents after the taxonomy changed.</p>
+          <p>A follow-up that stayed honest to the baselines already collected would repeat four checks. None of these have a recorded “after.”</p>
+        </div>
+        <div class="measures">
+          <div class="measure"><b>Ease, again</b>The same question: ease of finding materials in IRE Marketing or faPrint, 1 to 7. The current average is 5.73, with one rating at 1.</div>
+          <div class="measure"><b>All Products as a fallback</b>It led Marketing at 12,530 clicks. If the filters are trusted, that control should not have to outrank Postcard.</div>
+          <div class="measure"><b>Language match</b>Can a person move from the homepage category Postcard to a filter that is also called a postcard, without translating “small” or “4.25 × 5.5”?</div>
+          <div class="measure"><b>The rule, said back</b>Given Jumbo and Small plus one theme, does the person expect either size, restricted by the theme? That is the behavior the solution slide says people described. It was not re-tested in the deck.</div>
+        </div>
+      </section>
+
+      <section id="outcome">
+        <p class="kicker">13 — Outcome</p>
+        <h2>A rule and a vocabulary. Not a measured lift.</h2>
+        <div class="prose">
+          <p>The document ends on the filter rule and the annotated taxonomy. That is the outcome it records. It does not record a change in time-on-task, a change in the ease score, a change in All Products clicks, or a launch date.</p>
+          <p>What it does establish is a design decision with the evidence attached:</p>
+        </div>
+        <ul class="clean">
+          <li>Combine filters with OR inside a category and AND between categories, because that is the navigation model people described.</li>
+          <li>Lead with format, because six of eleven card sorts grouped by size first and the homepage is already organized that way. Postcard, 12,227. Flyer, 4,314.</li>
+          <li>Use those homepage names inside the filters. The annotation maps Small and Jumbo to Postcards, 8.5 × 11 to Flyers, the brochure sizes to Brochures, and the booklet sizes to Booklets.</li>
+          <li>Group Football, Baseball, and Hockey as Sports. Put Season in place of the Holiday heading. Collapse photo counts behind See more. Leave EDDM alone.</li>
+          <li>Treat Tag as a question, not as a default. It has homepage placement and 15 homepage clicks, and 21 clicks as a size filter.</li>
+        </ul>
+        <p>The catalog screenshot shows that product-type naming, option counts, Clear, search, a result total, and See less can live in the existing Marketing layout. The document does not connect that screenshot to a release metric.</p>
+      </section>
+
+      <section id="learnings">
+        <p class="kicker">14 — Learnings and next steps</p>
+        <h2>Labels were doing as much work as the logic</h2>
+        <div class="grid2">
+          <div class="prose">
+            <p>The click data and the card sort point at the same decision. People think in formats, and they also think in themes: Theme was the most-clicked filter category, at 12,260, while size-first was the most common card-sort strategy. The interface has to support both without making them look like one list.</p>
+            <p>The painful part was not the absence of filters. It was a homepage and a filter column that described the same object two ways, plus a combination rule nobody could see. All Products and Back to home were carrying the confusion. They were the first and third most-clicked items in the overall chart.</p>
+            <p>The sample is a real limit. Eleven people, and one of them an agent, is enough to see a size-first pattern and to hear a logic preference. It is not a map of every agent’s catalog. The ease score of 5.73, with one person at 1, says the same thing: do not treat the average as “this is fine.”</p>
+          </div>
+          <div class="card">
+            <h3>Next, still inside what the document leaves open</h3>
+            <ul class="clean">
+              <li>Read the nine survey questions in full. Only their topics are in the deck: frequency, navigation preferences, pain points, ease.</li>
+              <li>Read the Miro notes. The canvases are in the export and the words are not legible here, so pains and delights are still unpacked.</li>
+              <li>Decide what Tag is for. The deck flags the mismatch and does not recommend removing it.</li>
+              <li>Confirm whether the parenthetical counts describe the full catalog or the filtered set.</li>
+              <li>Test the OR / AND rule with agents, not only with the sales roles who made up most of these 11 respondents.</li>
+              <li>Specify the empty state and the mobile filter. Neither is drawn.</li>
+              <li>Put a date range on the click charts. Only the device chart has one: January 24, 2022 – January 24, 2023.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      Suvarna Myneni · AI-Native UX Designer, eXp Realty · Hyderabad ·
+      <a href="https://suvarnamyneni-project.github.io">Portfolio</a> ·
+      <a href="https://suvarnamyneni-project.github.io/myexp-plus-case-study/">MY eXp Plus</a>
+      <p class="note">Case study of the Marketing Filters project for IgniteRE Marketing. Charts and screens are from that project document. Where a step was not in the document, it is marked as design rationale or as a way success could be measured. Not an official eXp product page.</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged figure">
+    <button type="button" class="close">Close</button>
+    <img id="lightbox-img" alt="">
+    <p id="lightbox-cap"></p>
+  </dialog>
+  <script src="js/main.js"></script>
+</body>
+</html>
