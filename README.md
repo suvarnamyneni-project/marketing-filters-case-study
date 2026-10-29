@@ -1,6 +1,6 @@
 # Marketing Filters
 
-UX case study by [Suvarna Myneni](https://suvarnamyneni-project.github.io), Senior Product / UX Designer (AI-Native UX Designer at eXp Realty, Hyderabad).
+UX case study by [Ravi Myneni](https://suvarnamyneni-project.github.io), Senior Product / UX Designer (AI-Native UX Designer at eXp Realty, Hyderabad).
 
 **Live site:** https://suvarnamyneni-project.github.io/marketing-filters-case-study/
 
