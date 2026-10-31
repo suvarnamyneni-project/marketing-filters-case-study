@@ -1,8 +1,8 @@
 # Marketing Filters
 
-UX case study by [Ravi Myneni](https://suvarnamyneni-project.github.io), Senior Product / UX Designer (AI-Native UX Designer at eXp Realty, Hyderabad).
+UX case study by [Ravi Myneni](https://suvarnamyneni.github.io), Senior Product / UX Designer (AI-Native UX Designer at eXp Realty, Hyderabad).
 
-**Live site:** https://suvarnamyneni-project.github.io/marketing-filters-case-study/
+**Live site:** https://suvarnamyneni.github.io/marketing-filters-case-study/
 
 The work is a redesign of the product filters in IgniteRE Marketing (Spotlight), the catalog eXp Realty agents use to order marketing materials. The project goal, from the source document: streamline filtering with an intuitive interface, clear categorization, and smart search, so agents spend less time searching and feel more confident picking the right asset. Tools named in the document: Figma and Miro. Research used Pendo and a UserZoom survey.
 
